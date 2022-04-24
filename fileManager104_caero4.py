@@ -36,7 +36,7 @@ cList = []
 machValueList = []
 rrfValueList = []
 v3ValueList = []
-bSpanList = []
+stripList = []
 aelistList = []
 eId = 201
 ptList = []  # [ [], [], [] ]
@@ -206,44 +206,24 @@ model.add_aefact(eIdAef+2, aef3)
 
 # insert model.add_paero1, caero1
 eId2 = 103001
-nCh = 5  # 나스트란 기본설정. chord 박스 5개
-b1Span = float(yLeList[1]) - float(yLeList[0])  # span 길이를 균일하게 하기위한.
 for i in range(len(idSectList) - 1):  # leg, list = 길이, 원소의 갯수
-    # bSpan = round((float(yLeList[i + 1]) - float(yLeList[i])) * nCh / b1Span)  # round 반올림
     model.add_paero4(eId2, [0.0], [0.0], [0.0]) #docs, caocs, gapocs with control surface
     model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
     eId2 += 1000
     eIdAef += 1
-    # bSpanList.append(bSpan)
+    # stripList.append(bSpan)
 
 # insert model.add_set1, aero, aeros
 model.add_set1(1, idList)
-
 model.add_aero(float(1.0), float(1984.0), float(1.225E-12), 0)  # velocity, aerodynamic chord, density scal, coord
 model.add_aeros(float(1984.0), float(17174.0), float(3.227E7 / 2), 0, 0)  # half span model => half area
 
-# insert model.add_mkaero2
-# for m in machValueList:
-#     tempMachMesh = [float(m)]
-#     for i in range(len(rrfValueList)-1):
-#         tempMachMesh.append(None)
-#     model.add_mkaero2(tempMachMesh, rrfValueList)
 for m in machValueList:
     for rf in rrfValueList:
         model.add_mkaero2([m], [rf])
 
 # insert model.add_spline4
 model.add_spline4(int(1), int(105001), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10))
-
-# manage aelist
-eId2 = eId2 - (1000 * len(bSpanList))
-for i in range(len(bSpanList)):
-    # for b in range(bSpanList[i] * 5): # When using caero1, be sure to enter the number of all boxes.
-    for b in range(bSpanList[i]):
-        aelistList.append(eId2 + b)
-    eId2 += 1000
-
-model.add_aelist(1, aelistList)  # 그물망 수(우리가 설정한. 예를 들어 33x5면 165개
 
 # manage flfact
 seaAD = 1.225E-12
@@ -252,7 +232,17 @@ model.add_flfact(1, [float(cruiseAD/seaAD)])
 model.add_flfact(2, [float(0.0)])
 model.add_flfact(3, v3ValueList)
 
-
+# manage add_aelist
+eId3 = 103001
+eId4 = 104001
+eId5 = 105001
+for i in range(5):
+    aelistList.append(eId3 + i)
+for i in range(14):
+    aelistList.append(eId4 + i)
+for i in range(67):
+    aelistList.append(eId5 + i)
+model.add_aelist(1, aelistList)
 
 # insert model.add_flutter
 model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3))
