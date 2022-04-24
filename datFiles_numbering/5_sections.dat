@@ -1,0 +1,5 @@
+ID_sect	x_LE[mm]	y_LE[mm]	z_LE[mm]	c[mm]	airfoil
+1	0.0	0.0	0	2360	naca23018
+2	0.0	832.9	0	2360	naca23018
+3	79.8	3117.1	0	2266	naca23018
+4	631.5	8587.0	0	970	naca23012
