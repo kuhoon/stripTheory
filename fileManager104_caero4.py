@@ -202,8 +202,6 @@ nCh = 5  # 나스트란 기본설정. chord 박스 5개
 b1Span = float(yLeList[1]) - float(yLeList[0])  # span 길이를 균일하게 하기위한.
 for i in range(len(idSectList) - 1):  # leg, list = 길이, 원소의 갯수
     bSpan = round((float(yLeList[i + 1]) - float(yLeList[i])) * nCh / b1Span)  # round 반올림
-    # model.add_paero1(eId2) #docs, caocs, gapocs with control surface
-    # model.add_caero1(eId2, eId2, 1, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, bSpan, 0, nCh, 0)
     model.add_paero4(eId2, [0.0], [0.0], [0.0]) #docs, caocs, gapocs with control surface
     model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, bSpan, 0)
     eId2 += 1000
