@@ -195,20 +195,26 @@ for x, y, z, c in zip(xLeList, yLeList, zLeList, cList):
     model.add_point(eId, [float(x) + float(c), float(y), float(z)])
     eId = eId + 1
 
+# insert model.add_aefact
+eIdAef = 70
+aef1 = list(np.linspace(0, 1, 6))
+aef2 = list(np.linspace(0, 1, 15))
+aef3 = list(np.linspace(0, 1, 68))
+model.add_aefact(eIdAef, aef1)
+model.add_aefact(eIdAef+1, aef2)
+model.add_aefact(eIdAef+2, aef3)
+
 # insert model.add_paero1, caero1
 eId2 = 103001
-eIdAef = 70
 nCh = 5  # 나스트란 기본설정. chord 박스 5개
 b1Span = float(yLeList[1]) - float(yLeList[0])  # span 길이를 균일하게 하기위한.
 for i in range(len(idSectList) - 1):  # leg, list = 길이, 원소의 갯수
-    bSpan = round((float(yLeList[i + 1]) - float(yLeList[i])) * nCh / b1Span)  # round 반올림
+    # bSpan = round((float(yLeList[i + 1]) - float(yLeList[i])) * nCh / b1Span)  # round 반올림
     model.add_paero4(eId2, [0.0], [0.0], [0.0]) #docs, caocs, gapocs with control surface
-    model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, bSpan, 0)
+    model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
     eId2 += 1000
-    bSpanList.append(bSpan)
-
-
-model.add_aefact( eIdAef, [0, 0.5, 1])
+    eIdAef += 1
+    # bSpanList.append(bSpan)
 
 # insert model.add_set1, aero, aeros
 model.add_set1(1, idList)
@@ -237,8 +243,8 @@ for i in range(len(bSpanList)):
         aelistList.append(eId2 + b)
     eId2 += 1000
 
-
 model.add_aelist(1, aelistList)  # 그물망 수(우리가 설정한. 예를 들어 33x5면 165개
+
 # manage flfact
 seaAD = 1.225E-12
 cruiseAD = 8.170E-13
@@ -257,3 +263,5 @@ bdf145_filename_out = os.path.join('sol145_caero4.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")
+
+
