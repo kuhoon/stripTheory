@@ -204,6 +204,18 @@ model.add_aefact(eIdAef, aef1)
 model.add_aefact(eIdAef+1, aef2)
 model.add_aefact(eIdAef+2, aef3)
 
+# manage add_aelist
+eId3 = 103001
+eId4 = 104001
+eId5 = 105001
+for i in range(5):
+    aelistList.append(eId3 + i)
+for i in range(14):
+    aelistList.append(eId4 + i)
+for i in range(67):
+    aelistList.append(eId5 + i)
+model.add_aelist(1, aelistList)
+
 # insert model.add_paero1, caero1
 eId2 = 103001
 for i in range(len(idSectList) - 1):  # leg, list = 길이, 원소의 갯수
@@ -231,18 +243,6 @@ cruiseAD = 8.170E-13
 model.add_flfact(1, [float(cruiseAD/seaAD)])
 model.add_flfact(2, [float(0.0)])
 model.add_flfact(3, v3ValueList)
-
-# manage add_aelist
-eId3 = 103001
-eId4 = 104001
-eId5 = 105001
-for i in range(5):
-    aelistList.append(eId3 + i)
-for i in range(14):
-    aelistList.append(eId4 + i)
-for i in range(67):
-    aelistList.append(eId5 + i)
-model.add_aelist(1, aelistList)
 
 # insert model.add_flutter
 model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3))
