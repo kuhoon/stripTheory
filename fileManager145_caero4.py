@@ -183,7 +183,6 @@ model.add_rbe2(52, 8, '123456', [101])
 
 # insert model.add_eigrl
 eigrl = model.add_eigrl(10, nd=10, msglvl=0) # how many want to mode
-# model.add_eigrl(int(1), '', '', 10, 0)  # how many want to mode
 
 # <=========== sol 145 ===============>
 # insert model.add_point(id_no, x, y, z)
@@ -196,19 +195,19 @@ for x, y, z, c in zip(xLeList, yLeList, zLeList, cList):
 
 # insert model.add_aefact
 eIdAef = 70
-aef1 = list(np.linspace(0, 1, 6))
-aef2 = list(np.linspace(0, 1, 15))
+aef1 = list(np.linspace(0, 1, 6)) #Creates n-1 boxes with a ratio between 0 and 1.
+aef2 = list(np.linspace(0, 1, 15)) #Enter the number of strips you want n + 1
 aef3 = list(np.linspace(0, 1, 68))
 model.add_aefact(eIdAef, aef1)
 model.add_aefact(eIdAef+1, aef2)
 model.add_aefact(eIdAef+2, aef3)
 
-# insert model.add_paero1, caero1
+# insert model.add_paero4, caero4
 eId2 = 103001
-for i in range(len(idSectList) - 1):
-    model.add_paero4(eId2, [0.0], [0.0], [0.0]) #docs, caocs, gapocs with control surface
+for i in range(len(idSectList) - 1): #make for strip
+    model.add_paero4(eId2, [0.0], [0.0], [0.0]) #docs, caocs, gapocs with control surface, default =0. no Control surface
     model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
-    eId2 += 100
+    eId2 += 1000
     eIdAef += 1
     # stripList.append(bSpan)
 
@@ -216,33 +215,33 @@ for i in range(len(idSectList) - 1):
 eId3 = 103001
 eId4 = 104001
 eId5 = 105001
-for i in range(5):
+for i in range(5): #write down your number of strip in first box
     aelistList.append(eId3 + i)
-for i in range(14):
+for i in range(14): #write down your number of strip in second box
     aelistList.append(eId4 + i)
-for i in range(67):
+for i in range(67): #write down your number of strip in third box
     aelistList.append(eId5 + i)
 model.add_aelist(1, aelistList)
 
 # insert model.add_set1, aero, aeros
 model.add_set1(1, idList)
 model.add_aero(float(1.0), float(1984.0), float(1.225E-12), 0)  # velocity, aerodynamic chord, density scal, coord
-model.add_aeros(float(1984.0), float(17174.0), float(3.227E7 / 2), 0, 0)  # half span model => half area
+model.add_aeros(float(1984.0), float(17174.0), float(3.227E7 / 2), 0, 0)  # half span model => must used half area
 
-for m in machValueList:
+for m in machValueList: #want to make data list for mach and reduced frequency
     for rf in rrfValueList:
         model.add_mkaero2([m], [rf])
 
 # insert model.add_spline4
-model.add_spline4(int(1), int(103001), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10))
+model.add_spline4(int(1), int(103001), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10)) #Still considering which spline is suitable
 # model.add_spline2(int(1), int(105001), int(103001), int(105067), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
 
 # manage flfact
 seaAD = 1.225E-12
 cruiseAD = 8.170E-13
-model.add_flfact(1, [float(cruiseAD/seaAD)])
-model.add_flfact(2, [float(0.0)])
-model.add_flfact(3, v3ValueList)
+model.add_flfact(1, [float(cruiseAD/seaAD)]) # density set
+model.add_flfact(2, [float(0.0)]) # velocity set
+model.add_flfact(3, v3ValueList) # mach and reduced freqency set
 
 # insert model.add_flutter
 model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3))
