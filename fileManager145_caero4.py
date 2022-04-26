@@ -149,7 +149,6 @@ cc = CaseControlDeck([
 model.case_control_deck = cc
 model.validate()
 
-
 # model.add_mat1(1, E, G, nu, rho)
 
 model.add_param('POST', [0])
