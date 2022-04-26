@@ -10,7 +10,7 @@ nu = 0.32
 rho = 0.0000000000000001
 mat = model.add_mat1(1, E, G, nu, rho)
 
-idList = [] #변수 선언. 첫줄에서 시작
+idList = [] #declare a variable. start on the first line
 xValueList = []
 yValueList = []
 zValueList = []
@@ -27,9 +27,9 @@ idToList = []
 # open node.dat file_Wing
 with open("datFiles_numbering/1_nodes.dat") as datFile:
     nodeValueList = [data.split() for data in datFile]
-    del nodeValueList[0] # 0번 행을 지워라
+    del nodeValueList[0] # delete line 0
     for v in nodeValueList:
-        idList.append(v[0]) # list 원소 추가
+        idList.append(v[0]) # add list element
         xValueList.append(v[1])
         yValueList.append(v[2])
         zValueList.append(v[3])
@@ -51,7 +51,7 @@ with open("datFiles_numbering/3_mass_conc.dat") as datFile:
         xValueList.append(v[2])
         yValueList.append(v[3])
         zValueList.append(v[4])
-        conm2List.append(v[1]) #conm2list 100, 101 리스트 순서상 100번 101번이 뒤로 와야함.
+        conm2List.append(v[1]) #conm2list 100, 101, Numbers 100 and 101 must come last in the list order..
         mLump.append(v[5])
 
 # open elements.dat file_pbeam
@@ -100,7 +100,22 @@ cc = CaseControlDeck([
     'SPC = %s' % spc_id,
     'VECTOR(SORT1,REAL)=ALL',
     'SPCFORCES(SORT1, REAL) = ALL',
-    'BEGIN BULK',
+    'BEGIN BULK'
+    # 'SEVC = ALL', #print vibration modes
+    # 'SDISP(PLOT) = ALL',
+    # 'DISP (PLOT) = 10', #PLOT AND SAVE STRUTCTURAL DISPLACEMENTS IN SET
+    # 'OUTPUT (XYPLOT)',
+    # 'CSCALE 2.0',
+    # 'PLOTTER NASTRAN',
+    # 'CURVELINESYMBOL = -6',
+    # 'YTITLE = FREQUENCY F hz',
+    # 'XTITLE = VELOCITY V (mm/S)',
+    # 'XMIN = 50000.',
+    # 'XMIN = 161500.',
+    # 'YTMIN = 0.',
+    # 'YTMAX = 500.',
+    # 'XGRID LINES = YES',
+    # 'YGRID LINES = YES',
 ])
 model.case_control_deck = cc
 model.validate()

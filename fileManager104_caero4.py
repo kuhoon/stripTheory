@@ -204,6 +204,15 @@ model.add_aefact(eIdAef, aef1)
 model.add_aefact(eIdAef+1, aef2)
 model.add_aefact(eIdAef+2, aef3)
 
+# insert model.add_paero1, caero1
+eId2 = 103001
+for i in range(len(idSectList) - 1):
+    model.add_paero4(eId2, [0.0], [0.0], [0.0]) #docs, caocs, gapocs with control surface
+    model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
+    eId2 += 100
+    eIdAef += 1
+    # stripList.append(bSpan)
+
 # manage add_aelist
 eId3 = 103001
 eId4 = 104001
@@ -216,15 +225,6 @@ for i in range(67):
     aelistList.append(eId5 + i)
 model.add_aelist(1, aelistList)
 
-# insert model.add_paero1, caero1
-eId2 = 103001
-for i in range(len(idSectList) - 1):  # leg, list = 길이, 원소의 갯수
-    model.add_paero4(eId2, [0.0], [0.0], [0.0]) #docs, caocs, gapocs with control surface
-    model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
-    eId2 += 1000
-    eIdAef += 1
-    # stripList.append(bSpan)
-
 # insert model.add_set1, aero, aeros
 model.add_set1(1, idList)
 model.add_aero(float(1.0), float(1984.0), float(1.225E-12), 0)  # velocity, aerodynamic chord, density scal, coord
@@ -235,7 +235,8 @@ for m in machValueList:
         model.add_mkaero2([m], [rf])
 
 # insert model.add_spline4
-model.add_spline4(int(1), int(105001), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10))
+model.add_spline4(int(1), int(103001), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10))
+# model.add_spline2(int(1), int(105001), int(103001), int(105067), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
 
 # manage flfact
 seaAD = 1.225E-12
@@ -253,5 +254,3 @@ bdf145_filename_out = os.path.join('sol145_caero4.bdf')
 model.write_bdf(bdf145_filename_out, enddata=True)
 print(bdf145_filename_out)
 print("====> write bdf file success!")
-
-
