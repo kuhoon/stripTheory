@@ -205,7 +205,7 @@ model.add_aefact(eIdAef+2, aef3)
 # insert model.add_paero4, caero4
 eId2 = 103001
 for i in range(len(idSectList) - 1): #make for strip
-    model.add_paero4(eId2, [0.0], [0.0], [0.0]) #docs, caocs, gapocs with control surface, default =0. no Control surface
+    model.add_paero4(eId2, [0.0], [0.0], [0.0], cla = int(0), lcla = int(0), circ=int(0), lcirc = int(0)) #docs, caocs, gapocs with control surface, default =0. no Control surface
     model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
     eId2 += 1000
     eIdAef += 1
