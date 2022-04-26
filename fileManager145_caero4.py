@@ -13,7 +13,7 @@ v3FileName = "datfiles_numbering/8_v3.dat"
 
 model = BDF()
 
-idList = [] #변수 선언. 첫줄에서 시작
+idList = [] #declare a variable. start on the first line
 xValueList = []
 yValueList = []
 zValueList = []
@@ -54,9 +54,9 @@ mat = model.add_mat1(1, E, G, nu, rho)
 # open 1_node.dat file_Wing
 with open("datFiles_numbering/1_nodes.dat") as datFile:
     nodeValueList = [data.split() for data in datFile]
-    del nodeValueList[0] # 0번 행을 지워라
+    del nodeValueList[0] # delete line 0
     for v in nodeValueList:
-        idList.append(v[0]) # list 원소 추가
+        idList.append(v[0]) # add list element
         xValueList.append(v[1])
         yValueList.append(v[2])
         zValueList.append(v[3])
@@ -78,7 +78,7 @@ with open("datFiles_numbering/3_mass_conc.dat") as datFile:
         xValueList.append(v[2])
         yValueList.append(v[3])
         zValueList.append(v[4])
-        conm2List.append(v[1]) #conm2list 100, 101 리스트 순서상 100번 101번이 뒤로 와야함.
+        conm2List.append(v[1]) #conm2list 100, 101, Numbers 100 and 101 must come last in the list order
         mLump.append(v[5])
 
 # open 4_elements.dat file_pbeam
@@ -98,10 +98,10 @@ with open("datFiles_numbering/4_elements.dat") as datFile:
 # open 5_sections.dat file_Wing
 with open(sectionFileName) as datFile:
     sectValueList = [data.split() for data in datFile]
-    del sectValueList[0]  # 0번 행을 지워라
+    del sectValueList[0]  # delete line 0
     for v in sectValueList:
         idSectList.append(v[0])
-        xLeList.append(v[1])  # list 원소 추가
+        xLeList.append(v[1])  # add list element
         yLeList.append(v[2])
         zLeList.append(v[3])
         cList.append(v[4])
