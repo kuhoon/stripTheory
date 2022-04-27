@@ -203,25 +203,26 @@ model.add_aefact(eIdAef+1, aef2)
 model.add_aefact(eIdAef+2, aef3)
 
 # insert model.add_paero4, caero4
-eId2 = 103001
+eId2 = 103000
 for i in range(len(idSectList) - 1): #make for strip
     model.add_paero4(eId2, [0.0], [0.0], [0.0], cla = int(0), lcla = int(0), circ=int(0), lcirc = int(0)) #docs, caocs, gapocs with control surface, default =0. no Control surface
-    model.add_caero4(eId2, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
+    model.add_caero4(eId2+1, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
     eId2 += 1000
     eIdAef += 1
     # stripList.append(bSpan)
+    # The strips are numbered sequentially, beginning with EID.  The user must ensure that all strip numbers are unique and greater than structural grid, scalar, and extra point IDs.
 
-# manage add_aelist
-eId3 = 103001
-eId4 = 104001
-eId5 = 105001
-for i in range(5): #write down your number of strip in first box
-    aelistList.append(eId3 + i)
-for i in range(14): #write down your number of strip in second box
-    aelistList.append(eId4 + i)
-for i in range(67): #write down your number of strip in third box
-    aelistList.append(eId5 + i)
-model.add_aelist(1, aelistList)
+# managed add_aelist
+# eId3 = 103001
+# eId4 = 104001
+# eId5 = 105001
+# for i in range(5): #write down your number of strip in first box
+#     aelistList.append(eId3 + i)
+# for i in range(14): #write down your number of strip in second box
+#     aelistList.append(eId4 + i)
+# for i in range(67): #write down your number of strip in third box
+#     aelistList.append(eId5 + i)
+# model.add_aelist(1, aelistList)
 
 # insert model.add_set1, aero, aeros
 model.add_set1(1, idList)
@@ -232,9 +233,11 @@ for m in machValueList: #want to make data list for mach and reduced frequency
     for rf in rrfValueList:
         model.add_mkaero2([m], [rf])
 
-# insert model.add_spline4
-model.add_spline4(int(1), int(103001), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10)) #Still considering which spline is suitable
-# model.add_spline2(int(1), int(105001), int(103001), int(105067), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
+# insert model.add_spline
+# model.add_spline4(int(1), int(eId3), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10)) #Still considering which spline is suitable
+model.add_spline2(int(1), int(103001), int(103001), int(103005), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
+model.add_spline2(int(2), int(104001), int(104001), int(104014), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
+model.add_spline2(int(3), int(105001), int(105001), int(105067), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
 
 # manage flfact
 seaAD = 1.225E-12
