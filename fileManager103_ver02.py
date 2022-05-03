@@ -100,7 +100,8 @@ cc = CaseControlDeck([
     'SPC = %s' % spc_id,
     'VECTOR(SORT1,REAL)=ALL',
     'SPCFORCES(SORT1, REAL) = ALL',
-    'BEGIN BULK'
+    'BEGIN BULK',
+    'SET 99 = 1,THRU, 10' #which mode do you want to print
     # 'SEVC = ALL', #print vibration modes
     # 'SDISP(PLOT) = ALL',
     # 'DISP (PLOT) = 10', #PLOT AND SAVE STRUTCTURAL DISPLACEMENTS IN SET
@@ -122,6 +123,7 @@ model.validate()
 
 model.add_param('POST', [0])
 model.add_param('PRTMAXIM', ['YES'])
+model.add_param('OMODES', ['ALL'])
 
 bdf_filename_out = os.path.join('sol103_ver04.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)

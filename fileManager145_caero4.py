@@ -235,9 +235,9 @@ for m in machValueList: #want to make data list for mach and reduced frequency
 
 # insert model.add_spline
 # model.add_spline4(int(1), int(eId3), int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10)) #Still considering which spline is suitable
-model.add_spline2(int(1), int(103001), int(103001), int(103005), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
-model.add_spline2(int(2), int(104001), int(104001), int(104014), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
-model.add_spline2(int(3), int(105001), int(105001), int(105067), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
+model.add_spline2(int(1), int(103001), int(103002), int(103005), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
+model.add_spline2(int(2), int(104001), int(104002), int(104014), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
+model.add_spline2(int(3), int(105001), int(105002), int(105067), int(1), float(0.), float(1.), int(0), float(0.), float(0.), 'BOTH')
 
 # manage flfact
 seaAD = 1.225E-12
