@@ -102,21 +102,6 @@ cc = CaseControlDeck([
     'SPCFORCES(SORT1, REAL) = ALL',
     'BEGIN BULK',
     'SET 99 = 1,THRU, 10' #which mode do you want to print
-    # 'SEVC = ALL', #print vibration modes
-    # 'SDISP(PLOT) = ALL',
-    # 'DISP (PLOT) = 10', #PLOT AND SAVE STRUTCTURAL DISPLACEMENTS IN SET
-    # 'OUTPUT (XYPLOT)',
-    # 'CSCALE 2.0',
-    # 'PLOTTER NASTRAN',
-    # 'CURVELINESYMBOL = -6',
-    # 'YTITLE = FREQUENCY F hz',
-    # 'XTITLE = VELOCITY V (mm/S)',
-    # 'XMIN = 50000.',
-    # 'XMIN = 161500.',
-    # 'YTMIN = 0.',
-    # 'YTMAX = 500.',
-    # 'XGRID LINES = YES',
-    # 'YGRID LINES = YES',
 ])
 model.case_control_deck = cc
 model.validate()
@@ -125,7 +110,7 @@ model.add_param('POST', [0])
 model.add_param('PRTMAXIM', ['YES'])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
 
-bdf_filename_out = os.path.join('sol103_ver04.bdf')
+bdf_filename_out = os.path.join('sol103_strip.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)
 
