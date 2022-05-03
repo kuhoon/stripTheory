@@ -144,7 +144,8 @@ cc = CaseControlDeck([
     'ANALYSIS = FLUTTER',
     'AESYMXY = Asymmetric',
     'AESYMXZ = Symmetric',
-    'FMETHOD = 1'
+    'FMETHOD = 1',
+    'SET 99 = 1,THRU, 10' #output EIGENVALUE in .06 file. The current state has requested to print all of the numbers 1 to 10.
 ])
 model.case_control_deck = cc
 model.validate()
@@ -156,6 +157,7 @@ model.add_param('PRTMAXIM', ['YES'])
 model.add_param('SNORM', [20.0])
 model.add_param('WTMASS', [1.0])  # default = 1.0
 model.add_param('Aunit', [1.0])
+model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
 
 # # insert model.add_grid(id_no, x, y, z)
 for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):

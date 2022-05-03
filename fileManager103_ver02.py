@@ -123,7 +123,7 @@ model.validate()
 
 model.add_param('POST', [0])
 model.add_param('PRTMAXIM', ['YES'])
-model.add_param('OMODES', ['ALL'])
+model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
 
 bdf_filename_out = os.path.join('sol103_ver04.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
