@@ -214,7 +214,6 @@ reChord1 = chord1.tolist()
 chord2 = np.zeros(67) # 67 strip
 reChord2 = chord2.tolist()
 
-
 model.add_paero4(103000, docs=reChord0, caocs=reChord0, gapocs=reChord0, cla=int(0), lcla=int(0), circ=int(0), lcirc=int(0))  # docs, caocs, gapocs with control surface, default =0. no Control surface
 model.add_paero4(104000, docs=reChord1, caocs=reChord1, gapocs=reChord1, cla=int(0), lcla=int(0), circ=int(0), lcirc=int(0))  # docs, caocs, gapocs with control surface, default =0. no Control surface
 model.add_paero4(105000, docs=reChord2, caocs=reChord2, gapocs=reChord2, cla=int(0), lcla=int(0), circ=int(0), lcirc=int(0))  # docs, caocs, gapocs with control surface, default =0. no Control surface
@@ -234,14 +233,15 @@ for m in machValueList: #want to make data list for mach and reduced frequency
     for rf in rrfValueList:
         model.add_mkaero2([m], [rf])
 
-# for i1 in range(103001, 103006):
+# insert model.add_aelist for spline4
 i1 = range(103001, 103006)
 i2 = range(104001, 104015)
 i3 = range(105001, 105068)
 toti = list(i1) + list(i2) + list(i3)
 model.add_aelist(1, toti)
 
-# insert model.add_spline
+# insert model.add_spline, idk but spline2 has fatal error2260.
+# fatal error2260. User information : possibly for the surface spline all points lie in a straight line, or not enough points are included.
 model.add_spline4(int(1), 105001, int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10)) #Still considering which spline is suitable
 
 # manage flfact
