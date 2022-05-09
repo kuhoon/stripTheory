@@ -139,7 +139,7 @@ cc = CaseControlDeck([
     'SUBTITLE = Default',
     'METHOD = 10', # MODIFIED GIVENS METHOD OF REAL EIGENVALUE EXTRACTION
     'SPC = %s' % spc_id, # WING ROOT DEFLECTIONS AND PLATE IN-PLANE ROTATIONS FIXED
-    'VECTOR(SORT1,REAL)=ALL',
+    'VECTOR(SORT1,REAL) = ALL',
     'SPCFORCES(SORT1, REAL) = ALL',
     'BEGIN BULK',
     'ANALYSIS = FLUTTER',
@@ -147,13 +147,34 @@ cc = CaseControlDeck([
     'AESYMXZ = Symmetric',
     'FMETHOD = 1',
     'SET 99 = 1,THRU, 10' #output EIGENVALUE in .06 file. The current state has requested to print all of the numbers 1 to 10.
+    # 'OUTPUT(XYPLOT)',
+    # 'PLOTTER NASTRAN',
+    # 'CURVELINESYMBOL = -6'
+    # 'CSCALE = 2.0',
+    # 'YTTITLE = DAMPING G',
+    # 'YBTITLE = FREQUENCY F HZ',
+    # 'XTITLE = VELOCITY V (MM/SEC)',
+    # 'XMIN = 52000',
+    # 'XMAX = 239300',
+    # 'YTMIN = -1',
+    # 'YTMAX = 2',
+    # 'YBMAX = 5',
+    # 'YBMAX = 30',
+    # 'XTGRID LINES = YES',
+    # 'XBGRID LINES = YES',
+    # 'YTGRID LINES = YES',
+    # 'YBGRID LINES = YES',
+    # 'UPPER TICS = -1',
+    # 'TRIGHT TICS = -1',
+    # 'BRIGHT TICS = -1',
+    # 'XYPLOT = VG / 1(G,F) 2(G,F) 3(G,F) 4(G,F) 5(G,F)'
 ])
 model.case_control_deck = cc
 model.validate()
 
 # model.add_mat1(1, E, G, nu, rho)
 
-model.add_param('POST', [0])
+model.add_param('POST', [-1]) #print result. 0 = .xdb, -1 = .op2
 model.add_param('PRTMAXIM', ['YES'])
 model.add_param('SNORM', [20.0])
 model.add_param('WTMASS', [1.0])  # default = 1.0

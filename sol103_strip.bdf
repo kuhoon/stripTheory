@@ -17,7 +17,7 @@ SUBCASE 1
 BEGIN BULK
 $PARAMS
 PARAM     OMODES     ALL
-PARAM       POST       0
+PARAM       POST      -1
 PARAM   PRTMAXIM     YES
 $NODES
 GRID           1         1299.18      0.      0.
