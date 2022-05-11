@@ -19,6 +19,7 @@ $PARAMS
 PARAM     OMODES     ALL
 PARAM       POST      -1
 PARAM   PRTMAXIM     YES
+PARAM     WTMASS      1.
 $NODES
 GRID           1         1299.18      0.      0.
 GRID           2         1299.18416.4695      0.

@@ -109,7 +109,7 @@ model.validate()
 model.add_param('POST', [-1]) #print result. 0 = .xdb, -1 = .op2
 model.add_param('PRTMAXIM', ['YES'])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
-
+model.add_param('WTMASS', [1.])
 bdf_filename_out = os.path.join('sol103_strip.bdf')
 model.write_bdf(bdf_filename_out, enddata=True)
 print(bdf_filename_out)

@@ -180,6 +180,7 @@ model.add_param('SNORM', [20.0])
 model.add_param('WTMASS', [1.0])  # default = 1.0
 model.add_param('Aunit', [1.0])
 model.add_param('OMODES', ['ALL']) #Output for extracted modes will be computed.(all=default)
+model.add_param('WTMASS', [1.])
 
 # # insert model.add_grid(id_no, x, y, z)
 for i, x, y, z in zip(idList, xValueList, yValueList, zValueList):
