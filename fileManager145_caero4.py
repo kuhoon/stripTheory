@@ -146,10 +146,10 @@ cc = CaseControlDeck([
     'AESYMXY = Asymmetric',
     'AESYMXZ = Symmetric',
     'FMETHOD = 1',
-    'SET 99 = 1,THRU, 10' #output EIGENVALUE in .06 file. The current state has requested to print all of the numbers 1 to 10.
-    # 'OUTPUT(XYPLOT)',
+    'SET 99 = 1,THRU, 10', #output EIGENVALUE in .06 file. The current state has requested to print all of the numbers 1 to 10.
+    # 'OUTPUT(XYPLOT)'
     # 'PLOTTER NASTRAN',
-    # 'CURVELINESYMBOL = -6'
+    # 'CURVELINESYMBOL = -6',
     # 'CSCALE = 2.0',
     # 'YTTITLE = DAMPING G',
     # 'YBTITLE = FREQUENCY F HZ',

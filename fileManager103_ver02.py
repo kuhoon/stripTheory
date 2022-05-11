@@ -98,7 +98,7 @@ cc = CaseControlDeck([
     'SUBTITLE = Default',
     'METHOD = 10', #number of nd
     'SPC = %s' % spc_id,
-    'VECTOR(SORT1,REAL)=ALL',
+    'VECTOR(SORT1,PUNCH, REAL)=ALL',
     'SPCFORCES(SORT1, REAL) = ALL',
     'BEGIN BULK',
     'SET 99 = 1,THRU, 10' #which mode do you want to print
