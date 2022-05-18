@@ -152,7 +152,7 @@ cc = CaseControlDeck([
     'AESYMXY = Asymmetric',
     'AESYMXZ = Symmetric',
     'FMETHOD = 1',
-    'SET 99 = 1,THRU, 10', #output EIGENVALUE in .06 file. The current state has requested to print all of the numbers 1 to 10.
+    'SET 99 = 1,THRU, 10' #output EIGENVALUE in .06 file. The current state has requested to print all of the numbers 1 to 10.
     # 'OUTPUT(XYPLOT)'
     # 'PLOTTER NASTRAN',
     # 'CURVELINESYMBOL = -6',
@@ -242,28 +242,28 @@ eIdAef = 70
 aef1 = list(np.linspace(0, 1, 6)) #Creates n-1 boxes with a ratio between 0 and 1.
 aef2 = list(np.linspace(0, 1, 15)) #Enter the number of strips you want n + 1
 aef3 = list(np.linspace(0, 1, 68))
-model.add_aefact(eIdAef, aef1)
-model.add_aefact(eIdAef+1, aef2)
-model.add_aefact(eIdAef+2, aef3)
+aef = [aef1, aef2, aef3]
+for i in aef:
+    model.add_aefact(eIdAef, i)
+    eIdAef += 1
 
 # insert model.add_paero4, caero4
-
 chord0 = np.zeros(5) #paero4 for docs, caocs, gapocs, 5 strip
 reChord0 = chord0.tolist()
 chord1 = np.zeros(14) # 14 strip
 reChord1 = chord1.tolist()
 chord2 = np.zeros(67) # 67 strip
 reChord2 = chord2.tolist()
-
 model.add_paero4(103000, docs=reChord0, caocs=reChord0, gapocs=reChord0, cla=int(0), lcla=int(0), circ=int(0), lcirc=int(0))  # docs, caocs, gapocs with control surface, default =0. no Control surface
 model.add_paero4(104000, docs=reChord1, caocs=reChord1, gapocs=reChord1, cla=int(0), lcla=int(0), circ=int(0), lcirc=int(0))  # docs, caocs, gapocs with control surface, default =0. no Control surface
 model.add_paero4(105000, docs=reChord2, caocs=reChord2, gapocs=reChord2, cla=int(0), lcla=int(0), circ=int(0), lcirc=int(0))  # docs, caocs, gapocs with control surface, default =0. no Control surface
 
 # insert model.add_caero4
 eId2 = 103000
+eIdAef1 = 70
 for i in range(len(idSectList) - 1): #make for strip
-    model.add_caero4(eId2+1, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
-    eIdAef += 1
+    model.add_caero4(eId2+1, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef1)
+    eIdAef1 += 1
     eId2 += 1000
 
 # insert model.add_set1, aero, aeros
@@ -275,17 +275,23 @@ for m in machValueList: #want to make data list for mach and reduced frequency
     for rf in rrfValueList:
         model.add_mkaero2([m], [rf])
 
+# insert model.add_spline2
 model.add_card(['SPLINE2', 1, 103001, 103001, 103005, 1, 0., 1., 0, 0., 0., None, 'BOTH'], 'SPLINE2')
 model.add_card(['SPLINE2', 2, 104001, 104001, 104014, 1, 0., 1., 0, 0., 0., None, 'BOTH'], 'SPLINE2')
 model.add_card(['SPLINE2', 3, 105001, 105001, 105067, 1, 0., 1., 0, 0., 0., None, 'BOTH'], 'SPLINE2')
 
-
 # manage flfact
 seaAD = 1.225E-12
 cruiseAD = 8.170E-13
-model.add_flfact(1, [float(cruiseAD/seaAD)]) # density set
-model.add_flfact(2, [float(0.0)]) # velocity set
-model.add_flfact(3, v3ValueList) # mach and reduced freqency set
+
+# density set
+model.add_flfact(1, [float(cruiseAD/seaAD)])
+
+# velocity set, bis zum oberen Geschwindigkeitslimit von 150% der Geschwindigkeit v_D durch, das heißt maximal 1.5 * 159.5 m/s = 239.3 m/s
+model.add_flfact(2, [float(0.0)])
+
+# mach and reduced freqency set
+model.add_flfact(3, v3ValueList)
 
 # insert model.add_flutter
 model.add_flutter(1, 'PK', 1, 2, 3, 'L', None, None, float(1E-3))
