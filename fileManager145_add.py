@@ -259,6 +259,7 @@ model.add_paero4(103000, docs=reChord0, caocs=reChord0, gapocs=reChord0, cla=int
 model.add_paero4(104000, docs=reChord1, caocs=reChord1, gapocs=reChord1, cla=int(0), lcla=int(0), circ=int(0), lcirc=int(0))  # docs, caocs, gapocs with control surface, default =0. no Control surface
 model.add_paero4(105000, docs=reChord2, caocs=reChord2, gapocs=reChord2, cla=int(0), lcla=int(0), circ=int(0), lcirc=int(0))  # docs, caocs, gapocs with control surface, default =0. no Control surface
 
+# insert model.add_caero4
 eId2 = 103000
 for i in range(len(idSectList) - 1): #make for strip
     model.add_caero4(eId2+1, eId2, np.array(ptList[i], float), float(cList[i]), np.array(ptList[i + 1], float), float(cList[i + 1]), 0, 0, eIdAef)
@@ -274,16 +275,10 @@ for m in machValueList: #want to make data list for mach and reduced frequency
     for rf in rrfValueList:
         model.add_mkaero2([m], [rf])
 
-# insert model.add_aelist for spline4
-i1 = range(103001, 103006)
-i2 = range(104001, 104015)
-i3 = range(105001, 105068)
-toti = list(i1) + list(i2) + list(i3)
-model.add_aelist(1, toti)
+model.add_card(['SPLINE2', 1, 103001, 103001, 103005, 1, 0., 1., 0, 0., 0., None, 'BOTH'], 'SPLINE2')
+model.add_card(['SPLINE2', 2, 104001, 104001, 104014, 1, 0., 1., 0, 0., 0., None, 'BOTH'], 'SPLINE2')
+model.add_card(['SPLINE2', 3, 105001, 105001, 105067, 1, 0., 1., 0, 0., 0., None, 'BOTH'], 'SPLINE2')
 
-# insert model.add_spline, idk but spline2 has fatal error2260.
-# fatal error2260. User information : possibly for the surface spline all points lie in a straight line, or not enough points are included.
-model.add_spline4(int(1), 105001, int(1), int(1), float(), 'FPS', 'BOTH', int(10), int(10)) #Still considering which spline is suitable
 
 # manage flfact
 seaAD = 1.225E-12
