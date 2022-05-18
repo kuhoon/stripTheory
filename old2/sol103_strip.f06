@@ -159,7 +159,7 @@
   
     MSC_DOC_DIR/doc/pdf_nastran/nastran_library.pdf
   
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     1
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     1
                                                                                                                                     
 0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
 0                                                                                                                                   
@@ -174,7 +174,7 @@
      $PYNASTRAN: NNODES=27                                                           
      $PYNASTRAN: NELEMENTS=24                                                        
      $EXECUTIVE CONTROL DECK                                                         
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     2
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     2
                                                                                                                                     
 0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
 0                                                                                                                                   
@@ -182,7 +182,7 @@
                                                                                                                                     
      SOL 103                                                                                 
      CEND                                                                                    
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     3
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     3
                                                                                                                                     
 0                                                                                                                                   
 0                                        C A S E    C O N T R O L    E C H O                                                        
@@ -192,12 +192,13 @@
                   2      SUBCASE 1                                                                               
                   3          SET 99 = 1 THRU 10                                                                  
                   4          DISPLACEMENT(SORT1,PUNCH, REAL) = ALL                                               
-                  5          METHOD = 10                                                                         
-                  6          SPC = 50                                                                            
-                  7          SPCFORCES(SORT1, REAL) = ALL                                                        
-                  8          SUBTITLE = DEFAULT                                                                  
-                  9      BEGIN BULK                                                                              
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     4
+                  5          MEFFMASS(ALL) = YES                                                                 
+                  6          METHOD = 10                                                                         
+                  7          SPC = 50                                                                            
+                  8          SPCFORCES(SORT1, REAL) = ALL                                                        
+                  9          SUBTITLE = DEFAULT                                                                  
+                 10      BEGIN BULK                                                                              
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     4
                                                                                                                                     
 0                                                                                                                                   
                                               I N P U T   B U L K   D A T A   E C H O                                               
@@ -207,9 +208,9 @@
      Messages are being generated at include level 0.
      File: c:/users/student_sla/desktop/k_kwon_aeroelastik/sol103_strip.bdf
  *** USER WARNING MESSAGE 9994 (BULFUN)
-     MAT1 with MID=1 near line 102
+     MAT1 with MID=1 near line 103
      User information:  Material has unreasonable or inconsistent values of E, G or NU.
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     5
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     5
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -260,7 +261,7 @@
                    43-        CONM2   10019   19              .0067326
                    44-        CONM2   10020   20              .006314
                    45-        CONM2   10021   21              .0059048
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     6
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     6
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -311,7 +312,7 @@
                    88-        PBEAM   4       1       8417.4692.2568+87.7462+8        4.3755+8
                    89-        PBEAM   5       1       7433.9961.9754+86.8569+8        3.8683+8
                    90-        PBEAM   6       1       6556.1821.7291+86.0491+8        3.4+8
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     7
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     7
                                                                                                                                     
 0                                                                                                                                   
                                                   S O R T E D   B U L K   D A T A   E C H O                                         
@@ -341,7 +342,7 @@
                               ENDDATA
                         TOTAL COUNT= 112
                               INPUT BULK DATA ENTRY COUNT = 117
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     8
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     8
                                                                                                                                     
 0                                                                                                                                   
                                         M O D E L   S U M M A R Y          BULK = 0
@@ -389,7 +390,7 @@
      (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          13 WORDS.)
            (NUMBER OF FORTRAN RECORDS WRITTEN =          25 RECORDS.)
            (TOTAL DATA WRITTEN FOR DATA BLOCK =          56 WORDS.)
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE     9
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE     9
                                                                                                                                     
 0                                                                                                                                   
 0                                                                                                                                   
@@ -419,7 +420,7 @@
      (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          30 WORDS.)
            (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
            (TOTAL DATA WRITTEN FOR DATA BLOCK =          61 WORDS.)
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    10
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    10
                                                                                                                                     
 0                                                                                                                                   
  *** USER INFORMATION MESSAGE 7310 (VECPRN)
@@ -448,7 +449,7 @@
      1.        2.3795359E+03          7.7636557E+00                 1                       10
      2.        7.2108764E+05          1.3514941E+02                11                        1
 
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    11
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    11
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
 0
@@ -466,7 +467,7 @@
 
                                      NUMBER OF SOLVES REQUIRED ............    10
 
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    12
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    12
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
  
@@ -483,7 +484,156 @@
         8         8        1.894173E+05        4.352210E+02        6.926757E+01        1.000000E+00        1.894173E+05
         9         9        2.395879E+05        4.894772E+02        7.790272E+01        1.000000E+00        2.395879E+05
        10        10        4.886512E+05        6.990359E+02        1.112550E+02        1.000000E+00        4.886512E+05
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    13
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    13
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                       M O D A L   E F F E C T I V E   M A S S   S U M M A R Y
+
+
+
+                                                    TOTAL EFFECTIVE MASS FRACTION
+                                         REFERENCE POINT AT ORIGIN OF BASIC COORDINATE SYSTEM
+
+
+                        T1                T2                T3                R1                R2                R3
+                   9.374865E-01      8.244587E-01      9.176236E-01      9.966840E-01      8.119162E-01      9.727783E-01
+
+
+
+
+                                                        EFFECTIVE MASS MATRIX   
+                       ***                                                                                  ***
+                       *   7.291380E-01 -5.259940E-03 -2.155610E-11 -2.623293E-08  2.937625E-08 -2.223736E+03 *
+                       *  -5.259940E-03  6.412297E-01 -1.171106E-10 -9.857647E-08  1.491872E-07  2.358785E+02 *
+                       *  -2.155610E-11 -1.171106E-10  7.136895E-01  2.202853E+03 -3.254638E+02 -1.394144E-07 *
+                       *  -2.623293E-08 -9.857647E-08  2.202853E+03  7.938015E+06 -1.231633E+06 -1.136290E-04 *
+                       *   2.937625E-08  1.491872E-07 -3.254638E+02 -1.231633E+06  4.710330E+05  1.767283E-04 *
+                       *  -2.223736E+03  2.358785E+02 -1.394144E-07 -1.136290E-04  1.767283E-04  8.311976E+06 *
+                       ***                                                                                  ***
+
+                                                     A-SET RIGID BODY MASS MATRIX
+                       ***                                                                                  ***
+                       *   7.777584E-01  2.808345E-27  0.000000E+00  0.000000E+00  0.000000E+00 -2.240630E+03 *
+                       *   2.808345E-27  7.777584E-01  0.000000E+00  0.000000E+00  0.000000E+00  4.090701E+02 *
+                       *   0.000000E+00  0.000000E+00  7.777584E-01  2.240630E+03 -4.090701E+02  0.000000E+00 *
+                       *   0.000000E+00  0.000000E+00  2.240630E+03  7.964425E+06 -1.281105E+06  0.000000E+00 *
+                       *   0.000000E+00  0.000000E+00 -4.090701E+02 -1.281105E+06  5.801497E+05  0.000000E+00 *
+                       *  -2.240630E+03  4.090701E+02  0.000000E+00  0.000000E+00  0.000000E+00  8.544575E+06 *
+                       ***                                                                                  ***
+
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    14
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                    MODAL EFFECTIVE MASS FRACTION
+                                                (FOR TRANSLATIONAL DEGREES OF FREEDOM)
+
+    MODE    FREQUENCY                      T1                                  T2                                  T3
+     NO.                        FRACTION            SUM             FRACTION            SUM             FRACTION            SUM
+
+       1    5.300504E+00      3.519079E-01      3.519079E-01      5.594709E-02      5.594709E-02      6.431724E-30      6.431724E-30
+       2    9.363404E+00      7.710045E-33      3.519079E-01      7.467911E-31      5.594709E-02      7.361560E-01      7.361560E-01
+       3    1.201530E+01      2.428500E-01      5.947579E-01      9.967616E-02      1.556233E-01      3.603642E-30      7.361560E-01
+       4    1.331734E+01      1.681693E-29      5.947579E-01      1.463317E-29      1.556233E-01      2.612246E-02      7.622784E-01
+       5    2.855141E+01      2.806632E-01      8.754211E-01      1.335708E-01      2.891940E-01      6.475367E-29      7.622784E-01
+       6    3.291152E+01      6.100907E-02      9.364302E-01      2.605309E-01      5.497250E-01      8.431158E-29      7.622784E-01
+       7    3.730777E+01      7.016914E-29      9.364302E-01      1.281129E-30      5.497250E-01      9.907705E-02      8.613555E-01
+       8    6.926757E+01      1.105159E-04      9.365407E-01      2.523636E-02      5.749613E-01      9.318875E-23      8.613555E-01
+       9    7.790272E+01      5.709781E-21      9.365407E-01      1.281227E-21      5.749613E-01      5.626810E-02      9.176236E-01
+      10    1.112550E+02      9.458652E-04      9.374865E-01      2.494974E-01      8.244587E-01      1.033740E-19      9.176236E-01
+
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    15
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                    MODAL EFFECTIVE MASS FRACTION
+                                                 (FOR ROTATIONAL DEGREES OF FREEDOM)
+
+    MODE    FREQUENCY                      R1                                  R2                                  R3
+     NO.                        FRACTION            SUM             FRACTION            SUM             FRACTION            SUM
+
+       1    5.300504E+00      5.840388E-30      5.840388E-30      1.736784E-31      1.736784E-31      6.644576E-01      6.644576E-01
+       2    9.363404E+00      8.975343E-01      8.975343E-01      1.081912E-01      1.081912E-01      1.432986E-30      6.644576E-01
+       3    1.201530E+01      1.945588E-29      8.975343E-01      1.679551E-29      1.081912E-01      7.399228E-02      7.384499E-01
+       4    1.331734E+01      3.042606E-02      9.279603E-01      2.100462E-01      3.182374E-01      5.677234E-30      7.384499E-01
+       5    2.855141E+01      2.786642E-29      9.279603E-01      2.293692E-28      3.182374E-01      1.195514E-01      8.580013E-01
+       6    3.291152E+01      5.360878E-29      9.279603E-01      3.835712E-28      3.182374E-01      7.625103E-02      9.342523E-01
+       7    3.730777E+01      5.787793E-02      9.858382E-01      3.442620E-01      6.624995E-01      2.743217E-30      9.342523E-01
+       8    6.926757E+01      1.744988E-25      9.858382E-01      2.071232E-22      6.624995E-01      3.283470E-03      9.375358E-01
+       9    7.790272E+01      1.084578E-02      9.966840E-01      1.494167E-01      8.119162E-01      5.823617E-22      9.375358E-01
+      10    1.112550E+02      7.549546E-21      9.966840E-01      2.274420E-19      8.119162E-01      3.524249E-02      9.727783E-01
+
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    16
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                     MODAL PARTICIPATION FACTORS
+
+    MODE     FREQUENCY               T1                T2                T3                R1                R2                R3
+     NO.
+
+       1    5.300504E+00      5.231628E-01      2.085985E-01      2.236588E-15      6.820215E-12     -3.174263E-13     -2.382752E+03
+       2    9.363404E+00      7.743741E-17      7.621175E-16      7.566713E-01      2.673639E+03     -2.505336E+02      3.499179E-12
+       3    1.201530E+01      4.346017E-01      2.784313E-01     -1.674145E-15     -1.244809E-11      3.121523E-12     -7.951305E+02
+       4    1.331734E+01      3.616560E-15      3.373584E-15     -1.425376E-01      4.922663E+02     -3.490820E+02     -6.964880E-12
+       5    2.855141E+01     -4.672132E-01      3.223132E-01      7.096669E-15      1.489765E-11     -1.153553E-11      1.010701E+03
+       6    3.291152E+01     -2.178309E-01      4.501445E-01     -8.097780E-15     -2.066308E-11      1.491740E-11      8.071757E+02
+       7    3.730777E+01      7.387465E-15     -9.982027E-16     -2.775932E-01     -6.789436E+02      4.469044E+02     -4.841448E-12
+       8    6.926757E+01      9.271173E-03      1.400992E-01      8.513421E-12      1.178890E-09     -1.096186E-08      1.674988E+02
+       9    7.790272E+01     -6.663956E-11      3.156715E-11      2.091960E-01      2.939054E+02     -2.944216E+02      7.054100E-08
+      10    1.112550E+02     -2.712295E-02     -4.405096E-01      2.835489E-10      2.452097E-07     -3.632498E-07     -5.487550E+02
+
+                  TOTAL       2.548685E-01      9.590771E-01      5.457366E-01      2.780867E+03     -4.471328E+02     -1.741263E+03
+
+
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    17
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                         MODAL EFFECTIVE MASS   
+
+    MODE     FREQUENCY               T1                T2                T3                R1                R2                R3
+     NO.
+
+       1    5.300504E+00      2.736993E-01      4.351332E-02      5.002328E-30      4.651533E-23      1.007595E-25      5.677508E+06
+       2    9.363404E+00      5.996552E-33      5.808231E-31      5.725515E-01      7.148344E+06      6.276710E+04      1.224425E-23
+       3    1.201530E+01      1.888786E-01      7.752397E-02      2.802763E-30      1.549549E-22      9.743909E-24      6.322326E+05
+       4    1.331734E+01      1.307951E-29      1.138107E-29      2.031696E-02      2.423261E+05      1.218582E+05      4.850955E-23
+       5    2.855141E+01      2.182882E-01      1.038858E-01      5.036271E-29      2.219400E-22      1.330685E-22      1.021516E+06
+       6    3.291152E+01      4.745031E-02      2.026301E-01      6.557404E-29      4.269631E-22      2.225287E-22      6.515327E+05
+       7    3.730777E+01      5.457464E-29      9.964086E-31      7.705801E-02      4.609644E+05      1.997235E+05      2.343962E-23
+       8    6.926757E+01      8.595464E-05      1.962779E-02      7.247833E-23      1.389782E-18      1.201625E-16      2.805586E+04
+       9    7.790272E+01      4.440830E-21      9.964852E-22      4.376299E-02      8.638037E+04      8.668407E+04      4.976033E-15
+      10    1.112550E+02      7.356546E-04      1.940487E-01      8.039999E-20      6.012779E-14      1.319504E-13      3.011321E+05
+
+                  TOTAL       7.291380E-01      6.412297E-01      7.136895E-01      7.938015E+06      4.710330E+05      8.311976E+06
+
+
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    18
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                                                        MODAL EFFECTIVE WEIGHT  
+
+    MODE     FREQUENCY               T1                T2                T3                R1                R2                R3
+     NO.
+
+       1    5.300504E+00      2.736993E-01      4.351332E-02      5.002328E-30      4.651533E-23      1.007595E-25      5.677508E+06
+       2    9.363404E+00      5.996552E-33      5.808231E-31      5.725515E-01      7.148344E+06      6.276710E+04      1.224425E-23
+       3    1.201530E+01      1.888786E-01      7.752397E-02      2.802763E-30      1.549549E-22      9.743909E-24      6.322326E+05
+       4    1.331734E+01      1.307951E-29      1.138107E-29      2.031696E-02      2.423261E+05      1.218582E+05      4.850955E-23
+       5    2.855141E+01      2.182882E-01      1.038858E-01      5.036271E-29      2.219400E-22      1.330685E-22      1.021516E+06
+       6    3.291152E+01      4.745031E-02      2.026301E-01      6.557404E-29      4.269631E-22      2.225287E-22      6.515327E+05
+       7    3.730777E+01      5.457464E-29      9.964086E-31      7.705801E-02      4.609644E+05      1.997235E+05      2.343962E-23
+       8    6.926757E+01      8.595464E-05      1.962779E-02      7.247833E-23      1.389782E-18      1.201625E-16      2.805586E+04
+       9    7.790272E+01      4.440830E-21      9.964852E-22      4.376299E-02      8.638037E+04      8.668407E+04      4.976033E-15
+      10    1.112550E+02      7.356546E-04      1.940487E-01      8.039999E-20      6.012779E-14      1.319504E-13      3.011321E+05
+
+                  TOTAL       7.291380E-01      6.412297E-01      7.136895E-01      7.938015E+06      4.710330E+05      8.311976E+06
+
+
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    19
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
  *** USER INFORMATION MESSAGE 7310 (VECPRN)
@@ -563,7 +713,7 @@
                MY       ----          ----          ----          ----      -3.231332E-02     ----                                  
                MZ       ----          ----          ----          ----          ----      -1.150588E+07                             
              TOTALS  1.325364E+04  2.152555E+05  6.036291E-03  1.632295E-01 -7.874541E+00  2.681498E+08
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    14
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    20
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
 0                                                  MAXIMUM  SPCFORCES       
@@ -579,7 +729,7 @@
 0        8   1.7561205E+03  2.6537217E+04  2.0822518E-04  5.6879964E-02  1.3611107E-03  2.7494456E+06
 0        9   1.7071515E-04  3.7376906E-04  5.0120848E+04  7.0416180E+07  5.4238566E+06  1.0008474E-01
 0       10   1.3253638E+04  2.1525554E+05  6.0362906E-03  1.6322945E-01  3.2313322E-02  1.1505883E+07
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    15
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    21
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
 0                                                  MAXIMUM  DISPLACEMENTS   
@@ -611,7 +761,7 @@
      (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         216 WORDS.)
            (NUMBER OF FORTRAN RECORDS WRITTEN =         110 RECORDS.)
            (TOTAL DATA WRITTEN FOR DATA BLOCK =        3725 WORDS.)
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    16
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    22
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  1.109160E+03
@@ -619,7 +769,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G     -5.802710E+02  -2.313690E+02   1.300063E-10  -1.158107E-08  -1.095815E-08   2.943442E+06
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    17
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    23
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  3.461204E+03
@@ -627,7 +777,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G     -3.537863E-13  -2.850038E-12  -2.618994E+03  -9.254010E+06  -2.535397E+06   8.454621E-09
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    18
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    24
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  5.699402E+03
@@ -635,7 +785,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G     -2.476970E+03  -1.586892E+03   7.816814E-13   5.091363E-08  -1.529971E-08   6.593427E+06
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    19
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    25
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  7.001555E+03
@@ -643,7 +793,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G     -1.312904E-11  -1.664230E-11   9.979847E+02  -3.446629E+06   3.740679E+06   4.524735E-08
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    20
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    26
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  3.218213E+04
@@ -651,7 +801,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G      1.503592E+04  -1.037273E+04  -1.562016E-09  -1.591333E-06   1.505613E-07  -1.905046E+07
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    21
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    27
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  4.276178E+04
@@ -659,7 +809,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G      9.314837E+03  -1.924898E+04   1.385814E-08   4.774105E-06  -7.005573E-08  -9.508378E+06
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    22
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    28
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  5.494881E+04
@@ -667,7 +817,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G      4.467932E-08   7.886391E-08   1.525342E+04   3.730714E+07  -4.739928E+06   1.003964E-05
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    23
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    29
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  1.894173E+05
@@ -675,7 +825,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G     -1.756121E+03  -2.653722E+04  -2.082252E-04  -5.687996E-02  -1.361111E-03   2.749446E+06
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    24
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    30
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  2.395879E+05
@@ -683,7 +833,7 @@
  
       POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
              1      G     -1.707152E-04   3.737691E-04  -5.012085E+04  -7.041618E+07   5.423857E+06  -1.000847E-01
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    25
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    31
       DEFAULT                                                                                                                       
 0                                                                                                            SUBCASE 1              
       EIGENVALUE =  4.886512E+05
@@ -696,7 +846,7 @@
                                  (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      1 WORDS.)
                                        (NUMBER OF FORTRAN RECORDS WRITTEN =      1 RECORDS.)
                                        (TOTAL DATA WRITTEN FOR EOF MARKER =      1 WORDS.)
-1                                                                               MAY  11, 2022  MSC Nastran  3/11/18   PAGE    26
+1                                                                               MAY  15, 2022  MSC Nastran  3/11/18   PAGE    32
                                                                                                                                     
 0                                                                                                            SUBCASE 1              
  * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     71
