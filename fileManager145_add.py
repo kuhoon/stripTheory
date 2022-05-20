@@ -153,7 +153,7 @@ cc = CaseControlDeck([
     'AESYMXZ = Symmetric',
     'FMETHOD = 1',
     'SET 99 = 1,THRU, 10' #output EIGENVALUE in .06 file. The current state has requested to print all of the numbers 1 to 10.
-    # 'OUTPUT(XYPLOT)'
+    # 'OUTPUT(XYPLOT)',
     # 'PLOTTER NASTRAN',
     # 'CURVELINESYMBOL = -6',
     # 'CSCALE = 2.0',
@@ -174,6 +174,7 @@ cc = CaseControlDeck([
     # 'TRIGHT TICS = -1',
     # 'BRIGHT TICS = -1',
     # 'XYPLOT = VG / 1(G,F) 2(G,F) 3(G,F) 4(G,F) 5(G,F)'
+    # 'XYPUNCH =VG / 1(G,F), 2(G,F), 3(G,F), 4(G,F), 5(G,F), 6(G,F), 7(G,F), 8(G,F), 9(G,F),10(G,F)'
 ])
 model.case_control_deck = cc
 model.validate()
