@@ -288,10 +288,11 @@ cruiseAD = 8.170E-13
 # density set
 model.add_flfact(1, [float(cruiseAD/seaAD)])
 
-# velocity set, bis zum oberen Geschwindigkeitslimit von 150% der Geschwindigkeit v_D durch, das heißt maximal 1.5 * 159.5 m/s = 239.3 m/s
+# FLFACT entry specifying Mach numbers to be used in flutter analysis. bis zum oberen Geschwindigkeitslimit von 150% der Geschwindigkeit v_D durch, das heißt maximal 1.5 * 159.5 m/s = 239.3 m/s
 model.add_flfact(2, [float(0.0)])
 
-# mach and reduced freqency set
+# FLFACT entry specifying reduced frequencies to be used in flutter analysis
+# for the “PKx” methods, the velocities FLFACT entry is specified in this field.  (Integer > 0)
 model.add_flfact(3, v3ValueList)
 
 # insert model.add_flutter
